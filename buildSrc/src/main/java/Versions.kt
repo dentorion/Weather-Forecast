@@ -102,7 +102,7 @@ object Versions {
     /**
      * Splash screen
      */
-    const val splashScreen = "1.0.0-beta01"
+    const val splashScreen = "1.0.0-beta02"
 
     /**
      * Epoxy
