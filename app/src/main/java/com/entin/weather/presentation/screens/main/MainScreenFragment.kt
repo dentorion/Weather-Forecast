@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.entin.weather.databinding.FragmentMainScreenBinding
+import com.entin.weather.presentation.utils.ViewResult
 import com.entin.weather.presentation.utils.observe
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,12 +31,12 @@ class MainScreenFragment : Fragment() {
     }
 
     private fun observeForecast() {
-        observe(viewModel.stateScreen) { result ->
+        observe(viewModel.stateMainScreen) { result ->
             setState(result)
         }
     }
 
-    private fun setState(result: Any) {
+    private fun setState(result: ViewResult<MainScreenViewState>) {
         // Not yet implemented
     }
 }

@@ -57,4 +57,5 @@ dependencies {
         implementation(retrofit)
         implementation(loggingInterceptor)
     }
+
 }

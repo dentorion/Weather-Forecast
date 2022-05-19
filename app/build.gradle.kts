@@ -113,6 +113,18 @@ dependencies {
     Dependencies.splashScreen.apply {
         implementation(splashScreen)
     }
+
+    // Retrofit + logging interceptor
+    Dependencies.retrofit.apply {
+        implementation(gson)
+        implementation(retrofit)
+        implementation(loggingInterceptor)
+    }
+
+    // Gson
+    Dependencies.gson.apply {
+        implementation(gson)
+    }
 }
 
 kapt {
