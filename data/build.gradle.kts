@@ -48,4 +48,11 @@ dependencies {
         api(coreCoroutines)
         api(androidCoroutines)
     }
+
+    // Retrofit + logging interceptor
+    Dependencies.retrofit.apply {
+        implementation(gson)
+        implementation(retrofit)
+        implementation(loggingInterceptor)
+    }
 }
