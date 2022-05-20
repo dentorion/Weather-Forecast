@@ -14,6 +14,11 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * MainScreen ViewModel for [MainScreenFragment]
+ * Gets data from [Repository] and prepare MainScreen ViewState to show.
+ */
+
 @HiltViewModel
 class MainScreenViewModel @Inject constructor(
     private val repository: Repository,
@@ -36,5 +41,3 @@ class MainScreenViewModel @Inject constructor(
         }
     }
 }
-
-

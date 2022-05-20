@@ -8,6 +8,10 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/**
+ * Dependency Injection for [RemoteDataSource]
+ */
+
 @Module
 @InstallIn(SingletonComponent::class)
 interface DataSourcesModule {

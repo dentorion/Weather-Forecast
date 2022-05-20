@@ -4,9 +4,11 @@ import com.entin.data.api.ApiWeather
 import com.entin.data.model.ApiWeatherResponse
 import com.entin.data.utils.safeApiRequest
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
+/**
+ * [RemoteDataSource] interface implementation.
+ */
+
 class RemoteDataSourceImpl @Inject constructor(
     private val apiService: ApiWeather
 ) : RemoteDataSource {

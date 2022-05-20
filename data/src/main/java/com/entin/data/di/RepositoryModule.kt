@@ -7,6 +7,10 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
+/**
+ * Dependency Injection for [Repository]
+ */
+
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {

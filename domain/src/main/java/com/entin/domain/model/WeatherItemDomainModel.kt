@@ -1,5 +1,9 @@
 package com.entin.domain.model
 
+/**
+ * Inner Model of [CityWeatherDomainModel]
+ */
+
 data class WeatherItemDomainModel(
     val time: String,
     val icon: String,

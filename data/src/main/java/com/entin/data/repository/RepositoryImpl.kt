@@ -8,14 +8,16 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
+/**
+ * [Repository] interface implementation.
+ * In future cities can be moved to database to be edited by user preferences.
+ */
+
 class RepositoryImpl @Inject constructor(
     private val remoteSource: RemoteDataSource,
 ) : Repository {
 
-    /**
-     * City list
-     * Can be downloaded from SQL Lite DB or DataStore or Internet and so on.
-     */
+    // City list. Can be downloaded from SQL Lite DB or DataStore or Internet and so on.
     private val cityIdList: Map<String, String> = mapOf(
         "Warsaw" to "756135",
         "Wroclaw" to "3081368",
@@ -25,11 +27,10 @@ class RepositoryImpl @Inject constructor(
         "Gdansk" to "3099434",
     )
 
-    /**
-     * Result list
-     */
+    // Result list
     private val cityWeatherList: MutableList<CityWeatherDomainModel> = mutableListOf()
 
+    // Download data from ApiWeather and add it to result list.
     override fun getWeatherForecast(): Flow<Result<List<CityWeatherDomainModel>>> = flow {
         cityIdList.forEach { (_, cityId) ->
             remoteSource.getWeatherForecastByCityId(cityId)
@@ -37,7 +38,7 @@ class RepositoryImpl @Inject constructor(
                     cityWeatherList.add(response.mapToDomain())
                 }.onFailure { e ->
                     emit(Result.failure(e))
-                    return@forEach
+                    return@flow
                 }
         }
 

@@ -1,6 +1,7 @@
 package com.entin.data.di
 
 import com.entin.data.api.ApiWeather
+import com.entin.data.remote.RemoteDataSource
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -12,6 +13,10 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
+
+/**
+ * Dependency Injection for Retrofit
+ */
 
 @Module
 @InstallIn(SingletonComponent::class)

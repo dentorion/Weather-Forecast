@@ -7,10 +7,15 @@ import com.entin.domain.model.WeatherItemDomainModel
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * Mapper
+ * ApiWeatherResponse converts into Domain Model to be show for user.
+ */
+
 fun WeatherInfo.mapToWeatherItem(): WeatherItemDomainModel =
     WeatherItemDomainModel(
         time = convertLongToTime(this.dt),
-        icon = "http://openweathermap.org/img/w/" + this.weather[0].icon + ".png",
+        icon = ADDRESS + this.weather[0].icon + FORMAT,
         description = this.weather[0].main,
         temp = this.main.temp.toInt(),
         humid = this.main.humidity,
@@ -29,9 +34,18 @@ fun ApiWeatherResponse.mapToDomain(): CityWeatherDomainModel {
 }
 
 fun convertLongToTime(time: Long): String {
-    val format = SimpleDateFormat("HH:mm", Locale.US)
+    val format = SimpleDateFormat(TIME_FORMAT, Locale.US)
     return format.format(Date(time * THOUSAND))
 }
 
 // Correct Long Unix Epoch time
 const val THOUSAND = 1000L
+
+// Web address of icon
+const val ADDRESS = "http://openweathermap.org/img/w/"
+
+// Format icon
+const val FORMAT = ".png"
+
+// Time format
+const val TIME_FORMAT = "d.MM - HH:mm"

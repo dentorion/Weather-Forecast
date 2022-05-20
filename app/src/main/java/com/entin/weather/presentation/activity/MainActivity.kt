@@ -9,6 +9,10 @@ import com.entin.weather.R
 import com.entin.weather.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * Activity - entry point for single activity application
+ */
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 

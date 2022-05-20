@@ -2,6 +2,10 @@
 
 import dependencies.*
 
+/**
+ * All List of available Dependencies
+ */
+
 object Dependencies {
     val base = Base
     val hilt = Hilt
@@ -22,7 +26,6 @@ object Dependencies {
     val splashScreen = SplashScreen
     val epoxy = Epoxy
     val gravitySnapHelper = GravitySnapHelper
-
     val workManager = WorkManager
     val retrofit = Retrofit
 }

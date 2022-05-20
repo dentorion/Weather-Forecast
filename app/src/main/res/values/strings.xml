@@ -2,4 +2,8 @@
     <string name="app_name">Weather</string>
 
     <string name="label_fragment_main">Weather Forecast</string>
+    <string name="description_city_icon">city icon</string>
+    <string name="description_loading_indicator">TODO</string>
+    <string name="description_weather_icon">TODO</string>
+    <string name="error_fetch_weather">Error happened</string>
 </resources>
