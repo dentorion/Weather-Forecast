@@ -104,11 +104,6 @@ dependencies {
         implementation(glide)
     }
 
-    // Leak Canary
-    Dependencies.leakCanary.apply {
-        debugImplementation(canary)
-    }
-
     // Splash screen
     Dependencies.splashScreen.apply {
         implementation(splashScreen)

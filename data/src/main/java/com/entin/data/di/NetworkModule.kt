@@ -1,7 +1,8 @@
 package com.entin.data.di
 
+import androidx.annotation.Keep
+import com.entin.data.BuildConfig
 import com.entin.data.api.ApiWeather
-import com.entin.data.remote.RemoteDataSource
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -22,6 +23,9 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
+    @Keep
+    private const val APPID = "appid"
+
     @Singleton
     @Provides
     fun provideLoggingInterceptor(): HttpLoggingInterceptor =
@@ -30,7 +34,20 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideOkHTTPClientBuilder(int: HttpLoggingInterceptor): OkHttpClient =
-        OkHttpClient.Builder().addInterceptor(int).build()
+        OkHttpClient.Builder()
+            .addInterceptor(int)
+            .addInterceptor { chain ->
+                val request = chain.request()
+                    .url
+                    .newBuilder()
+                    .addQueryParameter(APPID, BuildConfig.MY_KEY)
+                    .build()
+
+                chain.proceed(
+                    chain.request().newBuilder().url(request).build()
+                )
+            }
+            .build()
 
     @Singleton
     @Provides

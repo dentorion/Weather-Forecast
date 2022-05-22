@@ -16,7 +16,6 @@ interface ApiWeather {
     suspend fun getWeatherByCity(
         @Query(ID) cityId: String,
         @Query(UNITS) units: String = METRIC,
-        @Query(APPID) appId: String = BuildConfig.MY_KEY
     ): ApiWeatherResponse
 }
 
@@ -29,9 +28,6 @@ private const val ID = "id"
 
 @Keep
 private const val UNITS = "units"
-
-@Keep
-private const val APPID = "appid"
 
 @Keep
 private const val METRIC = "metric"
