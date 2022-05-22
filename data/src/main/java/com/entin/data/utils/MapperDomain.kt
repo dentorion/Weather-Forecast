@@ -15,7 +15,7 @@ import java.util.*
 fun WeatherInfo.mapToWeatherItem(): WeatherItemDomainModel =
     WeatherItemDomainModel(
         time = convertLongToTime(this.dt),
-        icon = ADDRESS + this.weather[0].icon + FORMAT,
+        icon = StringBuilder().append(ADDRESS).append(this.weather[0].icon).append(FORMAT).toString(),
         description = this.weather[0].main,
         temp = this.main.temp.toInt(),
         humid = this.main.humidity,
