@@ -10,6 +10,7 @@ import com.entin.weather.presentation.utils.Pending
 import com.entin.weather.presentation.utils.Success
 import com.entin.weather.presentation.utils.ViewResult
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -31,7 +32,7 @@ class MainScreenViewModel @Inject constructor(
     private val _stateMainScreen = MutableLiveData<ViewResult<MainScreenViewState>>(Pending())
     val stateMainScreen: LiveData<ViewResult<MainScreenViewState>> = _stateMainScreen
 
-    private fun fetchForecastWeather() = viewModelScope.launch {
+    private fun fetchForecastWeather() = viewModelScope.launch(Dispatchers.IO) {
         repository.getWeatherForecast().collect { result ->
             result.onSuccess { list ->
                 _stateMainScreen.postValue(Success(MainScreenViewState(cities = list)))
